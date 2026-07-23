@@ -32,6 +32,16 @@ document.getElementById("enviar").onclick=function(){
 
 let texto=document.getElementById("pregunta").value;
 
+document.getElementById("pregunta").addEventListener("keypress", function(e){
+
+    if(e.key==="Enter"){
+
+        document.getElementById("enviar").click();
+
+    }
+
+});  
+  
 if(texto=="") return;
 
 chat.innerHTML+=`
