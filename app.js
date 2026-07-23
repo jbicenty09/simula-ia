@@ -67,17 +67,34 @@ function enviarMensaje() {
 
         document.getElementById("escribiendo").remove();
 
-        chat.innerHTML += `
-        <div class="ia">
-            <div class="burbuja">
-                Gracias por tu pregunta.<br><br>
+let respuesta = "";
 
-                Esta es una versión de prueba de SIMULA IA.
+const pregunta = texto.toLowerCase();
 
-                Muy pronto responderé utilizando Inteligencia Artificial real y podré ayudarte con simulaciones financieras.
-            </div>
-        </div>
-        `;
+if (pregunta.includes("crédito") || pregunta.includes("prestamo") || pregunta.includes("préstamo")) {
+
+    respuesta = "💰 Puedo ayudarte a simular un crédito. Próximamente podrás calcular cuotas, intereses y comparar diferentes opciones.";
+
+} else if (pregunta.includes("ea") || pregunta.includes("tasa")) {
+
+    respuesta = "📈 La tasa Efectiva Anual (EA) representa el rendimiento o costo real de un año teniendo en cuenta la capitalización.";
+
+} else if (pregunta.includes("hipoteca")) {
+
+    respuesta = "🏠 Muy pronto podrás simular créditos hipotecarios y conocer el valor aproximado de tus cuotas.";
+
+} else {
+
+    respuesta = "🤖 Aún estoy aprendiendo. Muy pronto podré responder cualquier pregunta financiera.";
+}
+
+chat.innerHTML += `
+<div class="ia">
+    <div class="burbuja">
+        ${respuesta}
+    </div>
+</div>
+`;
 
         chat.scrollTop = chat.scrollHeight;
 
