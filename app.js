@@ -1,4 +1,6 @@
 const chat = document.getElementById("chat");
+const input = document.getElementById("pregunta");
+const boton = document.getElementById("enviar");
 
 chat.innerHTML = `
 <div class="mensaje">
@@ -28,44 +30,47 @@ Escribe una pregunta para comenzar.
 </div>
 `;
 
-document.getElementById("enviar").onclick=function(){
+function enviarMensaje(){
 
-let texto=document.getElementById("pregunta").value;
+    let texto = input.value.trim();
 
-document.getElementById("pregunta").addEventListener("keypress", function(e){
+    if(texto=="") return;
+
+    chat.innerHTML += `
+    <div class="mensaje">
+
+    <b>Tú:</b>
+
+    <br><br>
+
+    ${texto}
+
+    </div>
+
+    <div class="mensaje">
+
+    🤖 Estoy aprendiendo.
+
+    Muy pronto responderé utilizando Inteligencia Artificial.
+
+    </div>
+    `;
+
+    input.value="";
+
+    chat.scrollTop = chat.scrollHeight;
+}
+
+boton.addEventListener("click", enviarMensaje);
+
+input.addEventListener("keydown", function(e){
 
     if(e.key==="Enter"){
 
-        document.getElementById("enviar").click();
+        e.preventDefault();
+
+        enviarMensaje();
 
     }
 
-});  
-  
-if(texto=="") return;
-
-chat.innerHTML+=`
-<div class="mensaje">
-
-<b>Tú:</b>
-
-<br><br>
-
-${texto}
-
-</div>
-
-<div class="mensaje">
-
-🤖 Estoy aprendiendo.
-
-Muy pronto responderé utilizando Inteligencia Artificial.
-
-</div>
-`;
-
-document.getElementById("pregunta").value="";
-
-chat.scrollTop=chat.scrollHeight;
-
-}
+});
