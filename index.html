@@ -1,345 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIMULA IA</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
-
-background:#eef3fb;
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-#app{
-
-width:420px;
-
-max-width:95%;
-
-height:720px;
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:0 20px 50px rgba(0,0,0,.15);
-
-display:flex;
-
-flex-direction:column;
-
-}
-
-header{
-
-background:#1565C0;
-
-color:white;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-header h1{
-
-font-size:26px;
-
-}
-
-header p{
-
-opacity:.9;
-
-font-size:14px;
-
-margin-top:5px;
-
-}
-
-#chat{
-
-flex:1;
-
-padding:20px;
-
-overflow:auto;
-
-background:#f7f9fc;
-
-}
-
-.bot{
-
-display:flex;
-
-margin-bottom:18px;
-
-}
-
-.avatar{
-
-width:45px;
-
-height:45px;
-
-border-radius:50%;
-
-background:#1565C0;
-
-color:white;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-weight:bold;
-
-margin-right:10px;
-
-}
-
-.msg{
-
-background:white;
-
-padding:14px;
-
-border-radius:14px;
-
-box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-max-width:260px;
-
-line-height:1.6;
-
-}
-
-.user{
-
-display:flex;
-
-justify-content:flex-end;
-
-margin-bottom:18px;
-
-}
-
-.user .msg{
-
-background:#DCF8C6;
-
-}
-
-footer{
-
-display:flex;
-
-padding:15px;
-
-border-top:1px solid #ddd;
-
-background:white;
-
-}
-
-input{
-
-flex:1;
-
-padding:15px;
-
-border:1px solid #ddd;
-
-border-radius:10px;
-
-font-size:15px;
-
-outline:none;
-
-}
-
-button{
-
-margin-left:10px;
-
-background:#1565C0;
-
-color:white;
-
-border:none;
-
-padding:0 24px;
-
-border-radius:10px;
-
-font-size:16px;
-
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#0D47A1;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMULA IA</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <div id="app">
 
-<header>
+    <header>
 
-<h1>🤖 SIMULA IA</h1>
+        <div class="logo">🤖</div>
 
-<p>Tu asesor financiero inteligente</p>
+        <div>
 
-</header>
+            <h1>SIMULA IA</h1>
 
-<div id="chat">
+            <p>Tu asesor financiero inteligente</p>
 
-<div class="bot">
+        </div>
 
-<div class="avatar">
+    </header>
 
-IA
+    <main id="chat">
 
-</div>
+    </main>
 
-<div class="msg">
+    <footer>
 
-<b>¡Hola!</b>
+        <input
+            id="pregunta"
+            type="text"
+            placeholder="Escribe tu pregunta...">
 
-<br><br>
+        <button id="enviar">
+            Enviar
+        </button>
 
-Soy <b>SIMULA IA</b>.
-
-<br><br>
-
-Muy pronto podré ayudarte con:
-
-<ul>
-
-<li>Créditos.</li>
-
-<li>Intereses.</li>
-
-<li>Capacidad de endeudamiento.</li>
-
-<li>Amortizaciones.</li>
-
-<li>Todos los simuladores de SIMULA-YA.</li>
-
-</ul>
+    </footer>
 
 </div>
 
-</div>
-
-</div>
-
-<footer>
-
-<input id="pregunta"
-
-placeholder="Escribe tu pregunta...">
-
-<button onclick="enviar()">
-
-Enviar
-
-</button>
-
-</footer>
-
-</div>
-
-<script>
-
-function enviar(){
-
-let txt=document.getElementById("pregunta").value;
-
-if(txt=="") return;
-
-let chat=document.getElementById("chat");
-
-chat.innerHTML+=`
-
-<div class="user">
-
-<div class="msg">
-
-${txt}
-
-</div>
-
-</div>
-
-<div class="bot">
-
-<div class="avatar">
-
-IA
-
-</div>
-
-<div class="msg">
-
-Gracias por tu pregunta.
-
-Esta versión todavía no está conectada a la Inteligencia Artificial.
-
-En el siguiente paso la conectaremos.
-
-</div>
-
-</div>
-
-`;
-
-document.getElementById("pregunta").value="";
-
-chat.scrollTop=chat.scrollHeight;
-
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
-
 </html>
