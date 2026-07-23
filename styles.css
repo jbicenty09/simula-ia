@@ -94,3 +94,35 @@ footer button{
     color:white;
     cursor:pointer;
 }
+.usuario{
+    display:flex;
+    justify-content:flex-end;
+    margin:15px 0;
+}
+
+.ia{
+    display:flex;
+    justify-content:flex-start;
+    margin:15px 0;
+}
+
+.burbuja{
+    max-width:80%;
+    padding:12px 16px;
+    border-radius:18px;
+    line-height:1.5;
+    font-size:15px;
+}
+
+.usuario .burbuja{
+    background:#1565C0;
+    color:white;
+    border-bottom-right-radius:5px;
+}
+
+.ia .burbuja{
+    background:white;
+    color:#333;
+    border:1px solid #ddd;
+    border-bottom-left-radius:5px;
+}
